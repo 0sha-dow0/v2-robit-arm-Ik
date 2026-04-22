@@ -1,0 +1,8 @@
+ros2 service call /vx300/set_operating_modes interbotix_xs_msgs/srv/OperatingModes "{cmd_type: 'group', name: 'arm', mode: 'position', profile_type: 'time', profile_velocity: 300, profile_acceleration: 50}"
+
+ros2 service call /vx300/set_operating_modes interbotix_xs_msgs/srv/OperatingModes "{cmd_type: 'single', name: 'gripper', mode: 'pwm', profile_type: 'time', profile_velocity: 0, profile_acceleration: 0}"
+
+ros2 service call /vx300/torque_enable interbotix_xs_msgs/srv/TorqueEnable "{cmd_type: 'group', name: 'arm', enable: true}"
+ros2 service call /vx300/torque_enable interbotix_xs_msgs/srv/TorqueEnable "{cmd_type: 'single', name: 'gripper', enable: true}"
+
+ros2 topic echo /vx300/joint_states --once
